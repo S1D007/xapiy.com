@@ -1,0 +1,50 @@
+
+:root{
+  --font-light: rgb(231, 231, 231);
+  --font-dark: rgb(17, 17, 17);
+  --black: rgb(10, 10, 10);
+  --black-rgb: 1, 1, 1;
+  --primary-color:rgb(54, 54, 54);
+  --primary-rgb: 55, 55, 55;
+  --secondry-color: rgb(38, 235, 186);
+  --secondry-rgb: 27, 216, 169;
+  --links-color: rgb(0, 89, 255);
+  /* --button-color-editor: 27, 216, 169; */
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body{
+  font-family: 'Roboto';
+  display: grid;
+  max-width: 100%;
+}
+a{
+  font-weight: 700;
+  color: var(--links-color);
+  text-decoration: none;
+  transition: 0.30s ease;
+  border-radius: 0.35rem;
+}
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1rem;
+  gap: 0.3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  border-radius: 0.35rem;
+  transition: 0.30s ease;
+}
+button:hover{
+  transition: 0.30s ease;
+}
