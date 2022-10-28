@@ -20,7 +20,7 @@
 }
 .home_getstarted h1 {
   margin: 1rem 0rem;
-  font-size: clamp(3rem, calc(0.5rem + 5vw), 4.5rem);
+  font-size: clamp(2.6rem, calc(0.5rem + 5vw), 4.5rem);
 }
 .home_getstarted h1 span,
 .home_getstarted h2 span,
@@ -29,7 +29,7 @@
   color: rgba(var(--secondry-rgb), 0.8);
 }
 .home_getstarted h2 {
-  font-size: clamp(1.5rem, calc(0.4rem + 4vw), 3rem);
+  font-size: clamp(1.4rem, calc(0.4rem + 4vw), 3rem);
 }
 .home_getstarted p {
   font-size: clamp(0.9rem, calc(1rem + 1vw), 1.2rem);

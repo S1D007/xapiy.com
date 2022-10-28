@@ -13,14 +13,13 @@
     gap: 0.4rem;
     background-color: var(--black);
     color: var(--font-light);
-    padding:2%
+    padding:2%;
 }
 
 /* editor side  and response sisde also*/
 .editor_main , .response_main{
     margin: 1rem 0rem 0.5rem 0.5rem;
     padding-top: 0.5rem;
-    flex: 1;
     display: flex;
     flex-direction: column;
     max-width: 50rem;
@@ -28,6 +27,7 @@
     backdrop-filter: blur(50px);
     border-radius: 01rem;
     overflow: hidden;
+    width: 50%;
 }
 .editor_nav , .response_nav{
     padding: 0.3rem;
@@ -42,18 +42,62 @@
 .input_api_url{
     position: relative;
     width: 100%;
-    overflow: hidden;
 }
-.input_api_url .api_method{
-    left: 0%;
-    width: 4rem;
-    height: 2.2rem;
-    line-height: 2.2rem;
-    text-align: center;
-    font-weight: 600;
-    /* border-radius: 0.2rem; */
+.req_method{
+    /* position: relative; */
+    width: 7.5rem;
+    height: 2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(var(--black-rgb) , 0.9);
     cursor: pointer;
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
+    transition: 0.30s ease;
+}
+.req_method svg{
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+/* //// req mehtod change => .req_method_change_option */
+.req_method_change_option{
+    background-color: rgba(var(--black-rgb) , 1);
+    /* background-color: rebeccapurple; */
+    padding: 0.5rem;
+    position: absolute;
+    display: flex;
+    top: 2rem;
+    width: 6rem;
+    flex-direction: column;
+    gap: .1rem;
+    border-radius: 0.3rem;
+    z-index: 50;
+    /* display: none; */
+    visibility: hidden;
+    transition: 0.30s ease;
+}
+.req_method:hover .req_method_change_option{
+    transition: 0.30s ease;
+    visibility: visible;
+}
+.req_method_change_option li{
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+    list-style: none;
+}
+.req_method_change_option_open{
+    visibility: visible;
+}
+.active_req_method{
+    background-color: rgba(var(--secondry-rgb) , 0.3);
+    color: rgba(var(--secondry-rgb) , 1);
+}
+.req_method_change_option li:hover:not(.active_req_method){
+    background-color: rgba(var(--secondry-rgb) , 0.1);
+    color: rgba(var(--secondry-rgb) , 1);
 }
 .input_api_url input{
     padding: 0rem 4.8rem 0rem 0.5rem;
@@ -106,17 +150,30 @@
     background-color: rgba(var(--black-rgb) , 1);
     opacity: 1;
 }
-.code_editor_section{
+/* ///// output container issue raise here */
+.code_editor_section , .response_output{
     margin: 0.5rem;
     padding: 0.3rem;
-    /* border-radius: 0.3rem; */
+    border-radius: 0.3rem;
     height: 100%;
     min-height: 10rem;
-    background-color: rgba(var(--primary-rgb) , 0.8);
-     border: none;
-     outline: none;
+    background-color: #272C35;
+    color: white;
+    border: none;
+    outline: none;
      /* overflow-y:scroll; */
+    max-height: 40rem;
+
+    /* //  wrap  */
+    word-break: break-all;
+    white-space: pre-wrap; 
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;    
+    word-wrap: break-word;
 }
+
 
 /* response side */
 .status_and_more{
@@ -134,7 +191,7 @@
 .status_and_more div h1{
     font-weight: 600;
 }
-.response_output{
+/* .response_output{
     margin: 0.5rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
@@ -143,6 +200,16 @@
     background-color: rgba(var(--primary-rgb) , 0.8);
      border: none;
      outline: none;
+} */
+.response_main pre{
+    width: 100%;
+    word-break: break-all;
+    white-space: pre-wrap; 
+    white-space: pre-wrap;      
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;    
+    word-wrap: break-word;
 }
 .ads_in_res{
     margin-top: auto;
@@ -156,6 +223,6 @@
         flex-direction: column;
     }
     .editor_main , .response_main{
-        margin: 1rem 0.5rem 0.5rem 0.5rem;
+        width: 100%;
     }
 }

@@ -11,6 +11,7 @@
     padding: 0rem 3rem;
     justify-content: space-evenly;
     height: 3.5rem;
+    width: 100%;
     background-color: #0d0d0d;
     color: var(--font-light);
     position: relative;
@@ -27,6 +28,7 @@
 .menu_icons{
     display: none;
 }
+
 
 .nav_search{
     width: 40%;
@@ -54,7 +56,7 @@
     transition: 0.30s ease;
 }
 
-
+/* /// for mobile responsivness  sidenav */
 .for_mobile{
     display: flex;
     align-items: center;
@@ -92,6 +94,21 @@
     display: none;
 }
 
+
+
+@media (max-width:950px) {
+    .main_nav{
+        padding: 0rem 1rem;
+ }
+ .nav_search{
+    width: 35%;
+ }
+}
+@media (max-width:850px) {
+    .nav_search{
+        width: 30%;
+     }
+}
 @media (max-width:750px) {
     .main_nav{
         padding: 0rem 1rem;
