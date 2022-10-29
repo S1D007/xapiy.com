@@ -43,7 +43,7 @@ const Navbar = () => {
           </main>
           <Link href="/browseapi" onClick={() => { togglemenu() }}>Browse</Link>
           <Link href="/editor" onClick={() => { togglemenu() }}>Test API</Link>
-          <button onClick={() => { router.push("/signup"); togglemenu() }}>sign up</button>
+          <button onClick={() => { router.push("/account/signup"); togglemenu() }}>sign up</button>
         </section>
       </section>
     </nav>
