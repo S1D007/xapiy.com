@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     max-width: 50rem;
-    background-color: rgba(var(--secondary-rgb) , 0.5);
+    background-color: rgba(var(--primary-rgb) , 0.5);
     backdrop-filter: blur(50px);
     border-radius: 01rem;
     overflow: hidden;
@@ -45,7 +45,8 @@
 }
 .req_method{
     /* position: relative; */
-    width: 7.5rem;
+    padding-left: 0.3rem;
+    width: 7.6rem;
     height: 2rem;
     font-weight: 500;
     font-size: 0.9rem;
@@ -60,12 +61,10 @@
 .req_method svg{
     width: 2rem;
     height: 2rem;
-    color: white;
 }
 /* //// req mehtod change => .req_method_change_option */
 .req_method_change_option{
     background-color: rgba(var(--black-rgb) , 1);
-    /* background-color: rebeccapurple; */
     padding: 0.5rem;
     position: absolute;
     display: flex;
@@ -75,13 +74,13 @@
     gap: .1rem;
     border-radius: 0.3rem;
     z-index: 50;
-    /* display: none; */
-    visibility: hidden;
+    transform-origin: 50% 0%;
+    transform: scale(0);
     transition: 0.30s ease;
 }
 .req_method:hover .req_method_change_option{
     transition: 0.30s ease;
-    visibility: visible;
+    transform: scale(1);
 }
 .req_method_change_option li{
     border-radius: 0.4rem;
@@ -128,7 +127,7 @@
     transition: 0.30s ease;
     background-color: rgba(var(--black-rgb) , 1);
 }
-.api_methods , .response_more{
+.input_methods , .response_more{
     padding: 0.5rem 0.1rem;
     width: 100%;
     overflow: hidden;
@@ -136,7 +135,7 @@
     justify-content: center;
     gap: 0.2rem;
 }
-.api_methods div , .response_more div{
+.input_methods div , .response_more div{
     padding: 0.4rem 1rem;
     border-radius: 0.3rem;
     background-color: rgba(var(--black-rgb) , 0.9);
@@ -146,7 +145,7 @@
     transition: 0.10s ease;
     opacity: 0.7;
 }
-.api_methods div:hover , .response_more div:hover{
+.input_methods div:hover , .response_more div:hover{
     background-color: rgba(var(--black-rgb) , 1);
     opacity: 1;
 }
@@ -223,6 +222,7 @@
         flex-direction: column;
     }
     .editor_main , .response_main{
+        margin: 0.5rem;
         width: 100%;
     }
 }

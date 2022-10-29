@@ -6,8 +6,11 @@ import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { atomone } from '@uiw/codemirror-theme-atomone';
 
+// page redndering import 
+
 function index() {
-    const [fetchmethod, setfetchmethod] = useState("")
+    const [editorpage, seteditorpage] = useState("")
+    const [fetchmethod, setfetchmethod] = useState("GET")
     let fetchtype = [{type:"GET"} , {type:"POST"}, {type:"PATCH"} ,  {type:"PUT"} , {type:"DELETE" }]
     const fetchtypefunc = (x)=>{
         setfetchmethod(x)
@@ -33,8 +36,9 @@ function index() {
                         <input type="text" placeholder='API ENDPOINT' />
                         <button>send</button>
                     </section>
-                    <section className={style.api_methods}>
-                        <div className={style.active} style={{ opacity: 1 }}> query </div>
+                    <section className={style.input_methods}>
+                        <div style={{ opacity: 1 }}> editor </div>
+                        <div> query </div>
                         <div> header </div>
                         <div> auth </div>
                         <div> body </div>
