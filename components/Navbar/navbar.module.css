@@ -160,6 +160,7 @@
         height: 100vh;
         align-items: flex-start;
         transition: 0.30s ease;
+        overflow-y: auto;
     }
     .close_nav_and_more{
         width: 100%;

@@ -1,33 +1,51 @@
-import React , {useState}from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import style from "./Editor.module.css"
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
-import { atomone } from '@uiw/codemirror-theme-atomone';
-
-// page redndering import 
+// import JSrunner from "javascript-code-runner";
+// import CodeMirror from '@uiw/react-codemirror';
+// import { javascript } from '@codemirror/lang-javascript';
+// import { atomone } from '@uiw/codemirror-theme-atomone';
+import { TerminalContextProvider } from "react-terminal";
+import Terminal from "../../components/Terminal/Terminal"
 
 function index() {
-    const [editorpage, seteditorpage] = useState("")
-    const [fetchmethod, setfetchmethod] = useState("GET")
-    let fetchtype = [{type:"GET"} , {type:"POST"}, {type:"PATCH"} ,  {type:"PUT"} , {type:"DELETE" }]
-    const fetchtypefunc = (x)=>{
-        setfetchmethod(x)
+    const [selectedMethod, setSelectedMethod] = useState(null)
+    const [responseFromServer,setResponseFromServer] = useState(null)
+    // const [code, setCode] = useState('')
+    let methodTypes = [{ type: "GET" }, { type: "POST" }, { type: "PATCH" }, { type: "PUT" }, { type: "DELETE" }]
+    const methods = (select) => {
+        setSelectedMethod(select)
     }
+    useEffect(() => {
+        // Perform localStorage action only
+        // localStorage.setItem("response",false)
+        const response = window.localStorage.getItem("response")
+        setResponseFromServer(response)
+      })
+    // Editor Code !! Do not Change Anything
+
+    // const onChangeInEditor = useCallback((value, viewUpdate) => {
+    //     setCode(value)
+    // }, [])
+
+
+    // const {result,message} = JSrunner(code)
+    // console.log(result)
+    // console.log(message)
+
     return (
         <main className={style.main_page_editor}>
             <main className={style.editor_main}>
                 <nav className={style.editor_nav}>
                     <section className={style.input_api_url}>
                         <div className={style.req_method}>
-                            <p>{fetchmethod}</p>
+                            <p>{selectedMethod || methodTypes[0].type}</p>
                             <KeyboardArrowDownIcon />
                             <div className={style.req_method_change_option}>
                                 {
-                                    fetchtype.map((x)=>{
-                                        return(
-                                            <li key={x.type} onClick={()=>{fetchtypefunc(x.type)}}>{x.type}</li>
+                                    methodTypes.map((select) => {
+                                        return (
+                                            <li key={select.type} onClick={() => { methods(select.type) }}>{select.type}</li>
                                         )
                                     })
                                 }
@@ -36,8 +54,8 @@ function index() {
                         <input type="text" placeholder='API ENDPOINT' />
                         <button>send</button>
                     </section>
-                    <section className={style.input_methods}>
-                        <div style={{ opacity: 1 }}> editor </div>
+                    <section className={style.api_methods}>
+                        <div className={style.active} style={{ opacity: 1 }}> Terminal </div>
                         <div> query </div>
                         <div> header </div>
                         <div> auth </div>
@@ -45,16 +63,20 @@ function index() {
                     </section>
                 </nav>
                 {/* //// body parts  */}
+                {/* Do Not Change */}
                 <section className={style.code_editor_section}>
-                    <CodeMirror
-                        value="console.log('hello world!');"
-                        height="100%"
+                    <TerminalContextProvider>
+                        <Terminal />
+                    </TerminalContextProvider>
+                    {/* <CodeMirror
+                        value="console.log('hello Xapiy!');"
+                        height="30rem"
                         theme={atomone}
-                        maxHeight = "40rem"
+                        maxHeight="40rem"
                         // maxWidth='100%'
-                        extensions={[javascript({ jsx: true,typescript:true })]}
-                        // onChange={onChange}
-                    />
+                        extensions={[javascript({ jsx: true, typescript: true })]}
+                        onChange={onChangeInEditor}
+                    /> */}
                 </section>
             </main>
 
@@ -72,26 +94,9 @@ function index() {
                         <div>Cookies</div>
                     </section>
                 </nav>
-                <section contentEditable="true" className={style.response_output}>
-                    <pre>{`   
-
-    {
-    "_id": "6353c73291e99b29683c163a",
-    "category": "General Knowledge",
-    "level": "hard",
-    "question": "If someone said &quot;you are olid&quot;,
-     what would they mean?",
-    "options": [
-    "You are out of shape/weak.",
-    "Your appearance is repulsive.",
-    "You are incomprehensible/an idiot."
-    ],
-    "correctAnswer": "You smell extremely unpleasant.",
-    "price": 5,
-    "prize": 19,
-    "__v": 0
-    }
-                    `}
+                <section className={style.response_output}>
+                    <pre>
+                    {responseFromServer === null ? "Hello" : responseFromServer}
                     </pre>
                 </section>
                 <section className={style.ads_in_res}>
