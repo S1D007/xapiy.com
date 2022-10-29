@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ReactTerminal } from "react-terminal";
+
 // import style from "./Terminal.module.css"
 function Terminal(props) {
     // Define commands here
@@ -81,27 +82,27 @@ function Terminal(props) {
         </span>
     );
     return (
-        <ReactTerminal
-        style={{
-            overflow: "hidden"
-        }}
-            // className={style.terminal}
-            welcomeMessage={welcomeMessage}
-            prompt={<span style={{
-                color: "rgb(38, 235, 186)"
-            }} >$</span>}
-            themes={{
-                mycustomtheme: {
-                    themeBGColor: "#0d0d0d",
-                    themeToolbarColor: "#0d0d0d",
-                    themeColor: "#fff",
-                    themePromptColor: "#a917a8",
-
-                }
+            <ReactTerminal
+            style={{
+                overflow: "hidden",
+                border: "12px solid red"
             }}
-            theme={theme}
-            commands={commands}
-        />
+                // className={style.terminal}
+                welcomeMessage={welcomeMessage}
+                prompt={<span style={{
+                    color: "rgb(38, 235, 186)",
+                }} >$</span>}
+                themes={{
+                    mycustomtheme: {
+                        themeBGColor: "#0d0d0d",
+                        themeToolbarColor: "#0d0d0d",
+                        themeColor: "#fff",
+                        themePromptColor: "#a917a8",
+                    }
+                }}
+                theme={theme}
+                commands={commands}
+            />
     );
 }
 export default Terminal;

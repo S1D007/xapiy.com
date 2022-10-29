@@ -170,6 +170,15 @@
     white-space: -pre-wrap;      
     white-space: -o-pre-wrap;    
     word-wrap: break-word;
+    max-height: 70vh;
+}
+
+.code_editor_section ::-webkit-scrollbar{
+	width: 3px;
+	background-color: transparent;
+}
+.code_editor_section ::-webkit-scrollbar-thumb{
+	background-color: rgba(var(--secondry-rgb) , 1);
 }
 
 
