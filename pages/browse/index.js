@@ -1,10 +1,17 @@
 import React , {useState , useRef}from 'react'
 import Link from 'next/link'
 import style from "./browse.module.css"
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 const index = () => {
     let scrolldiv = useRef()
-    console.log(scrolldiv)
+    const prevScroll = ()=>{
+        scrolldiv.current.scrollBy(-150 , 0)
+    }
+    const nextScroll = ()=>{
+        scrolldiv.current.scrollBy(150 , 0)
+    }
+
   return (
     <main className={style.main_page}>
         <main className={style.width_container}>
@@ -16,6 +23,7 @@ const index = () => {
 
             <section className={style.content_body_nav_section}>
             <nav className={style.sidebar_nav}>
+                <header>Categories</header>
                 <li><Link href="#">api store</Link></li>
                 <li><Link href="#">api store</Link></li>
             </nav>
@@ -28,7 +36,7 @@ const index = () => {
                 <section className={style.more_api_container}>
                     <h1>header</h1>
                     <section className={style.scroll_in_x} ref={scrolldiv}>
-                        <button className={style.prev_btn}>preveos</button>
+                        <button className={style.prev_btn} onClick={prevScroll}>preveos</button>
                         <div><h1>asdf</h1></div>
                         <div>asdfaf</div>
                         <div>adfasdf</div>
@@ -38,10 +46,7 @@ const index = () => {
                         <div><h1>asdf</h1></div>
                         <div>asdfaf</div>
                         <div>adfasdf</div>
-                        <div><h1>asdf</h1></div>
-                        <div>asdfaf</div>
-                        <div>adfasdf</div>
-                        <button className={style.next_btn}>next</button>
+                        <button className={style.next_btn} onClick={nextScroll}>next</button>
                     </section>
                 </section>
 

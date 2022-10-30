@@ -12,6 +12,11 @@ import JsonFormatter from 'react-json-formatter'
 import Image from 'next/image';
 import EditorView from '../../components/EditorView/EditorView';
 import axios from 'axios';
+
+// toast 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function index() {
     const [selectedMethod, setSelectedMethod] = useState(null)
     const [endpoint,setEndpoint] = useState("")
@@ -39,19 +44,26 @@ function index() {
       }
       const HandleEndponitInput = (e) => {
         if(endpoint === ''){
-            alert("No Endpoint Url") //Prince make This Alert to Toast !!
+            toast.warning(<h3>no url found</h3> , {
+                 autoClose: 1000,
+                position: toast.POSITION.TOP_RIGHT,
+            }) //Prince make This Alert to Toast !!
         }else{
             try{
                 axios.get(endpoint).then((e)=>{
                     setResponse(JSON.stringify(e.data))
                 })
             }catch (e){
-                alert("Something Went Wrong") //Prince make This Alert to Toast !!
+                toast.error("Something Went Wrong" ,{
+                    autoClose: 2000,
+                    position: toast.POSITION.TOP_RIGHT
+                }) //Prince make This Alert to Toast !!
             }
         }
       }
     return (
         <main className={style.main_page_editor}>
+            <ToastContainer />
             <main className={style.editor_main}>
                 <nav className={style.editor_nav}>
                     <section className={style.input_api_url}>

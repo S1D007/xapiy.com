@@ -51,6 +51,13 @@
     height: 98%;
     overflow-y: auto;
 }
+.sidebar_nav header{
+    position: sticky;
+    top: 0;
+    left: 0%;
+    margin: 0.2rem;
+    font-weight: 500;
+}
 .sidebar_nav li{
     list-style: none;
     width: 100%;
@@ -85,6 +92,8 @@
     padding: 1rem;
     border: 1px solid #eee;
 }
+
+/* // scrollable div class  */
 .scroll_in_x{
     padding: 1rem;
     border: 1px solid #eee;
@@ -92,6 +101,15 @@
     display: flex;
     overflow-x: scroll;
     position: relative;
+    scroll-behavior: smooth;
+}
+.scroll_in_x::-webkit-scrollbar{
+    width: 0px;
+    height: 2px;
+}
+.scroll_in_x::-webkit-scrollbar-thumb{
+    background-color: green;
+
 }
 
 /* buttons for scroll  */
