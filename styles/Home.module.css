@@ -12,6 +12,7 @@
   justify-content: center;
   max-width: 70rem;
   position: relative;
+  overflow: hidden;
 }
 .home_getstarted {
   display: grid;

@@ -67,14 +67,15 @@
     gap: 1rem;
 }
 .links_and_more a{
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     color: var(--font-light);
     font-weight: 400;
     text-transform: capitalize;
-    background-color: rgba(var(--secondry-rgb) , 0.3);
+    background-color: rgba(var(--secondry-rgb) , 0.2);
     margin-right: 1rem;
 }
 .links_and_more a:hover{
+    background-color: rgba(var(--secondry-rgb) , 0.3);
    color: rgba(var(--secondry-rgb) , 1);
 }
 .links_and_more button{
@@ -159,6 +160,7 @@
         height: 100vh;
         align-items: flex-start;
         transition: 0.30s ease;
+        overflow-y: auto;
     }
     .close_nav_and_more{
         width: 100%;
